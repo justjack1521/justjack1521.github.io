@@ -2,7 +2,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: newrodin, sans-serif;
 }
 
-a {
+button > a {
     color: inherit !important;
     text-decoration: none !important;
 }
@@ -22,4 +22,8 @@ a {
     height: 70px;
     width: 100%;
     border-radius: 0;
+}
+
+.navbar-expand-lg {
+    flex-flow: row-reverse;
 }
