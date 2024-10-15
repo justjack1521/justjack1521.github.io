@@ -10,6 +10,10 @@ a {
     font-family: newrodin, sans-serif;
 }
 
+button {
+    font-family: newrodin, sans-serif;
+}
+
 .pageheader {
 
 }
@@ -19,4 +23,10 @@ a {
     border-bottom: 1px solid #000000;
     line-height: 28px;
     padding: 7px 0;
+}
+
+#launcherdownload {
+    height: 70px;
+    width: 100%;
+    border-radius: 0;
 }
