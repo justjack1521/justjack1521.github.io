@@ -36,6 +36,10 @@ button > a {
     margin-left: 8px;
 }
 
+.navbar > a {
+    margin-left: 8px;
+}
+
 .navbar-brand {
     font-family: newrodin, sans-serif;
 }
