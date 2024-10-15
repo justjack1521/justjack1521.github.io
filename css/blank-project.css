@@ -33,6 +33,9 @@ button > a {
 }
 
 .social-icons {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
 }
 
 .social-icons svg {
