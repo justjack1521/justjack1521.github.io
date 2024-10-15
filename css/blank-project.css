@@ -1,3 +1,7 @@
+p {
+    margin: 2px !important;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: newrodin, sans-serif;
 }
@@ -26,4 +30,9 @@ button > a {
 
 #navbarNav {
     flex-flow: row-reverse;
+}
+
+.social-icon {
+    width: 60%;
+    height: auto;
 }
