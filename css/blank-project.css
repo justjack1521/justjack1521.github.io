@@ -24,6 +24,6 @@ button > a {
     border-radius: 0;
 }
 
-.navbar-expand-lg {
+#navbarNav {
     flex-flow: row-reverse;
 }
