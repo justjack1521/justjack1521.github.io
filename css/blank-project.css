@@ -32,14 +32,12 @@ button > a {
     margin: 0 12px;
 }
 
-.navbar-brand {
-    font-family: newrodin, sans-serif;
+.navbar > button {
+    margin-left: 8px;
 }
 
-#navbarNav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.navbar-brand {
+    font-family: newrodin, sans-serif;
 }
 
 .social-icons {
