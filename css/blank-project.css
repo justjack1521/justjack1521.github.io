@@ -22,10 +22,29 @@ button > a {
     padding: 7px 0;
 }
 
-#launcherdownload {
-    height: 70px;
-    width: 100%;
-    border-radius: 0;
+.launcher-download {
+    display: block;
+    width: 290px;
+    box-sizing: border-box;
+    margin: 0.5rem auto;
+    padding: 1.25rem;
+    text-align: center;
+    border: none;
+    color: white;
+    outline: none;
+    font-size: 1rem;
+    background-color: #212529;
+    user-select: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.launcher-download:hover {
+    background-color: #424649;
+}
+
+.launcher-download:active {
+    transform: translateY(0.125rem)
 }
 
 #navbarNav {
