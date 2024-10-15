@@ -20,3 +20,8 @@ a {
     line-height: 28px;
     padding: 7px 0;
 }
+
+.btn-primary {
+    background-color: #666666 !important;
+    color: #FFFFFF !important;
+}
