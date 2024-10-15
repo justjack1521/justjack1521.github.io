@@ -1,3 +1,7 @@
 p {
-    font-family: newrodin, serif;
+    font-family: newrodin, sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: newrodin, sans-serif;
 }
