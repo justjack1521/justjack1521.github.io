@@ -28,12 +28,18 @@ button > a {
     border-radius: 0;
 }
 
+#navbarNav {
+    margin: 0 12px;
+}
+
 .navbar-brand {
     font-family: newrodin, sans-serif;
 }
 
 #navbarNav {
-    flex-flow: row-reverse;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .social-icons {
