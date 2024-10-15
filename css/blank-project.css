@@ -28,6 +28,10 @@ button > a {
     border-radius: 0;
 }
 
+.navbar-brand {
+    font-family: newrodin, sans-serif;
+}
+
 #navbarNav {
     flex-flow: row-reverse;
 }
