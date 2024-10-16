@@ -7,24 +7,17 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
         <meta name="viewport" content="width-device-width, initial-scale=1">
-    </head>
-    <script src="js/bootstrap.min.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-56RHFH8JXS"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+        <script src="js/bootstrap.min.js"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-56RHFH8JXS"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-        gtag('config', 'G-56RHFH8JXS');
-    </script>
-    <script src="/js/jquery-3.7.1.min.js"></script>
-    <script type="text/javascript">var submitted=false;</script>
-    <script type="text/javascript">
-        $('#gform').on('submit', function(e) {
-            $('#gform *').fadeOut(2000);
-            $('#gform').prepend('Your submission has been processed...');
-        });
-    </script>
+            gtag('config', 'G-56RHFH8JXS');
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
     <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -150,6 +143,13 @@
                 <input class="btn btn-dark" type="submit" value="Send">
             </form>
             <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+            <script type="text/javascript">var submitted=false;</script>
+            <script type="text/javascript">
+                $('#gform').on('submit', function(e) {
+                    $('#gform *').fadeOut(2000);
+                    $('#gform').prepend('Your message has been sent!');
+                });
+            </script>
         </div>
     </div>
     </body>
