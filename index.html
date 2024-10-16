@@ -17,6 +17,14 @@
 
         gtag('config', 'G-56RHFH8JXS');
     </script>
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">var submitted=false;</script>
+    <script type="text/javascript">
+        $('#gform').on('submit', function(e) {
+            $('#gform *').fadeOut(2000);
+            $('#gform').prepend('Your submission has been processed...');
+        });
+    </script>
     <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,6 +44,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#Social">Social</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Contact">Contact</a>
                 </li>
             </ul>
         </div>
@@ -121,6 +132,24 @@
                     </svg>
                 </a>
             </div>
+        </div>
+        <div class="container-fluid" id="Contact">
+            <div class="row pageheader">
+                <h3>
+                    <span>Contact</span>
+                </h3>
+            </div>
+            <p>Send any questions or comments privately via the form below. If you would like a reply, please include an email address.</p>
+            <div class="form mt-3" name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/15kR5nSeXuu22bxHmeUon6VtKEb9oACOHcwQLaa16bxA/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
+                <div class="form-group mb-3">
+                    <input name="entry.692799618" id="entry.692799618" type="email" class="form-control" placeholder="Email">
+                </div>
+                <div class="form-group mb-3">
+                    <textarea name="entry.626201969" id="entry.626201969" class="form-control" placeholder="Write your message here" rows="3" required></textarea>
+                </div>
+                <button class="btn btn-dark" type="submit">Send</button>
+            </div>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
         </div>
     </div>
     </body>
