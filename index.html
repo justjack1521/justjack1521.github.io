@@ -98,7 +98,8 @@
                             success: function (data) {
                                 let items = '';
                                 data.Issues.forEach(function (item) {
-                                    items += `<li><h3>${item.Text}</h3></li>`;
+                                    if (!item || item.hasOwnProperty('Text') === false) return;
+                                    items += `<li><p>${item.Text}</p></li>`;
                                 })
                                 $('#known-issues').html(items)
                             },
