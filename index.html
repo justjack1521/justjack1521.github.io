@@ -67,7 +67,7 @@
                             success: function (data, textStatus, jqXHR) {
                                 if (jqXHR.status === 200) {
                                     $('#status-value').text('live').css('color', 'green');
-                                } else if (jqXHR.status === 503) {
+                                } else {
                                     $('#status-value').text('under maintenance').css('color', 'red');
                                 }
                             },
