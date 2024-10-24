@@ -36,6 +36,9 @@
                     <a class="nav-link" href="#Download">Download</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="#Issue">Known Issues</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#FAQ">FAQs</a>
                 </li>
                 <li class="nav-item">
@@ -78,6 +81,34 @@
                     <a class="launcher-download" href="https://mevius-patch-us.sfo3.cdn.digitaloceanspaces.com/game/downloads/launcher/launcher.zip" target="_blank" download="BlankProjectLauncher.zip" title="Download Launcher">DOWNLOAD LAUNCHER</a>
                 </div>
             </div>
+        </div>
+        <div class="container-fluid" id="Issue">
+            <div class="row pageheader">
+                <h3>
+                    <span>Known Issues</span>
+                </h3>
+            </div>
+            <ul id="known-issues">
+                <script>
+                    $(document).ready(function () {
+                        $.ajax({
+                            url: 'https://mevius-mevway-9mxlj.ondigitalocean.app/public/patch/issues',
+                            method: 'GET',
+                            dataType: 'json',
+                            success: function (data) {
+                                let items = '';
+                                data.Issues.forEach(function (item) {
+                                    items += `<li><h3>${item.Text}</h3></li>`;
+                                })
+                                $('#known-issues').html(items)
+                            },
+                            error: function () {
+                                $('#known-issues').html('<li>Error fetching known issues</li>')
+                            }
+                        })
+                    })
+                </script>
+            </ul>
         </div>
         <div class="container-fluid" id="FAQ">
             <div class="row pageheader">
