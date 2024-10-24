@@ -66,10 +66,10 @@
                             method: 'GET',
                             dataType: 'json',
                             success: function (data) {
-                                $('status-value').text('live').css('color', 'green')
+                                $('#status-value').text('live').css('color', 'green')
                             },
                             error: function () {
-                                $('status-value').text('under maintenance').css('color', 'red')
+                                $('#status-value').text('under maintenance').css('color', 'red')
                             }
                         })
                     })
