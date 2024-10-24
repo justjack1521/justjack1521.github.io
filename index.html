@@ -66,13 +66,13 @@
                             method: 'GET',
                             success: function (data, textStatus, jqXHR) {
                                 if (jqXHR.status === 200) {
-                                    $('#status-value').text('live').css('color', 'green');
+                                    $('#status-value').text('live').css('color', 'forestgreen');
                                 } else {
-                                    $('#status-value').text('under maintenance').css('color', 'red');
+                                    $('#status-value').text('under maintenance').css('color', 'orangered');
                                 }
                             },
                             error: function (jqXHR) {
-                                $('#status-value').text('error checking status').css('color', 'orange');
+                                $('#status-value').text('error checking status').css('color', 'orangered');
                             }
                         })
                     })
