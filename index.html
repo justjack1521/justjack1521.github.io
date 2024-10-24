@@ -50,7 +50,29 @@
             </ul>
         </div>
     </nav>
+
     <div class="m-4">
+        <div class="row mb-4">
+            <h4 id="status">Blank Project is currently <strong id="status-value"></strong></h4>
+            <script>
+                $(document).ready(function () {
+                    $.ajax({
+                        url: 'https://mevius-mevway-9mxlj.ondigitalocean.app/public/system/status',
+                        method: 'GET',
+                        success: function (data, textStatus, jqXHR) {
+                            if (jqXHR.status === 200) {
+                                $('#status-value').text('live').css('color', 'forestgreen');
+                            } else {
+                                $('#status-value').text('under maintenance').css('color', 'orangered');
+                            }
+                        },
+                        error: function (jqXHR) {
+                            $('#status-value').text('error checking status').css('color', 'orangered');
+                        }
+                    })
+                })
+            </script>
+        </div>
         <div class="container-fluid" id="News">
             <div class="row pageheader">
                 <h3>
@@ -58,25 +80,6 @@
                 </h3>
             </div>
             <div class="row mb-4">
-                <h4 id="status">Blank Project is currently <strong id="status-value"></strong></h4>
-                <script>
-                    $(document).ready(function () {
-                        $.ajax({
-                            url: 'https://mevius-mevway-9mxlj.ondigitalocean.app/public/system/status',
-                            method: 'GET',
-                            success: function (data, textStatus, jqXHR) {
-                                if (jqXHR.status === 200) {
-                                    $('#status-value').text('live').css('color', 'forestgreen');
-                                } else {
-                                    $('#status-value').text('under maintenance').css('color', 'orangered');
-                                }
-                            },
-                            error: function (jqXHR) {
-                                $('#status-value').text('error checking status').css('color', 'orangered');
-                            }
-                        })
-                    })
-                </script>
                 <p>Download the launcher below and check out the social channels for updates and known issues</p>
                 <p>There is no set date for when the current test phase will end, hotfixes and updates may affect availability.</p>
             </div>
