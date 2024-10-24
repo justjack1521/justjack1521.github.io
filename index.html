@@ -58,7 +58,22 @@
                 </h3>
             </div>
             <div class="row mb-4">
-                <p>The second test build is <strong>currently live</strong></p>
+                <h4 id="status">Blank Project is currently <strong id="status-value"></strong></h4>
+                <script>
+                    $(document).ready(function () {
+                        $.ajax({
+                            url: 'https://mevius-mevway-9mxlj.ondigitalocean.app/public/system/status',
+                            method: 'GET',
+                            dataType: 'json',
+                            success: function (data) {
+                                $('status-value').text('live').css('color', 'green')
+                            },
+                            error: function () {
+                                $('status-value').text('under maintenance').css('color', 'red')
+                            }
+                        })
+                    })
+                </script>
                 <p>Download the launcher below and check out the social channels for updates and known issues</p>
                 <p>There is no set date for when the current test phase will end, hotfixes and updates may affect availability.</p>
             </div>
