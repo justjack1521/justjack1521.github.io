@@ -36,6 +36,9 @@
                     <a class="nav-link" href="#Download">Download</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="#Patch">Latest Patch</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#Issue">Known Issues</a>
                 </li>
                 <li class="nav-item">
@@ -103,12 +106,55 @@
                 </div>
             </div>
         </div>
+        <div class="container-fluid" id="Patch">
+            <div class="row pageheader">
+                <h3><span>Latest Patch</span></h3>
+            </div>
+            <p id="patch-error" style="color: red"></p>
+            <div id="patch-results">
+                <h5>Features</h5>
+                <ul id="features"></ul>
+                <h5>Fixes</h5>
+                <ul id="fixes"></ul>
+            </div>
+
+            <script>
+                $(document).ready(function () {
+                    $.ajax({
+                        url: 'https://mevius-mevway-9mxlj.ondigitalocean.app/public/patch/recent',
+                        method: 'GET',
+                        dataType: 'json',
+                        success: function (data) {
+                            let features = '';
+                            data.Features.forEach(function (item) {
+                                if (!item || item.hasOwnProperty('Text') === false) return;
+                                fixes += `<li><p>${item.Text}</p></li>`;
+                            })
+                            $('#features').html(features)
+                            let fixes = '';
+                            data.Fixes.forEach(function (item) {
+                                if (!item || item.hasOwnProperty('Text') === false) return;
+                                fixes += `<li><p>${item.Text}</p></li>`;
+                            })
+                            $('#fixes').html(fixes)
+                            $('#patch-results').show()
+                            $('#patch-error').text("")
+                        },
+                        error: function () {
+                            $('#patch-results').hide()
+                            $('#patch-error').text("Error getting latest patch information")
+                        }
+                    })
+                })
+            </script>
+        </div>
         <div class="container-fluid" id="Issue">
             <div class="row pageheader">
                 <h3>
                     <span>Known Issues</span>
                 </h3>
             </div>
+            <p id="issues-error" style="color: red"></p>
             <ul id="known-issues">
                 <script>
                     $(document).ready(function () {
@@ -123,9 +169,10 @@
                                     items += `<li><p>${item.Text}</p></li>`;
                                 })
                                 $('#known-issues').html(items)
+                                $('#issues-error').text("")
                             },
                             error: function () {
-                                $('#known-issues').html('<li>Error fetching known issues</li>')
+                                $('#issues-error').text("Error fetching known issues")
                             }
                         })
                     })
