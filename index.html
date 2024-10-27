@@ -111,11 +111,15 @@
                 <h3><span>Latest Patch</span></h3>
             </div>
             <p id="patch-error" style="color: red"></p>
-            <div id="patch-results">
-                <h5>Features</h5>
-                <ul id="features"></ul>
-                <h5>Fixes</h5>
-                <ul id="fixes"></ul>
+            <div id="patch-features">
+                <div>
+                    <h5>Features</h5>
+                    <ul id="features-list"></ul>
+                </div>
+                <div id="#patch-fixes">
+                    <h5>Fixes</h5>
+                    <ul id="fixes-list"></ul>
+                </div>
             </div>
 
             <script>
@@ -125,18 +129,31 @@
                         method: 'GET',
                         dataType: 'json',
                         success: function (data) {
-                            let features = '';
-                            data.Features.forEach(function (item) {
-                                if (!item || item.hasOwnProperty('Text') === false) return;
-                                fixes += `<li><p>${item.Text}</p></li>`;
-                            })
-                            $('#features').html(features)
-                            let fixes = '';
-                            data.Fixes.forEach(function (item) {
-                                if (!item || item.hasOwnProperty('Text') === false) return;
-                                fixes += `<li><p>${item.Text}</p></li>`;
-                            })
-                            $('#fixes').html(fixes)
+
+                            if (data.hasOwnProperty("Features") == false || data.Features.length == 0) {
+                                $('#patch-features').hide()
+                            } else {
+                                let features = '';
+                                data.Features.forEach(function (item) {
+                                    if (!item || item.hasOwnProperty('Text') === false) return;
+                                    fixes += `<li><p>${item.Text}</p></li>`;
+                                })
+                                $('#features-list').html(features)
+                                $('#patch-features').show()
+                            }
+
+                            if (data.hasOwnProperty("Fixes") == false || data.Fixes.length == 0) {
+                                $('#patch-fixes').hide()
+                            } else {
+                                let fixes = '';
+                                data.Fixes.forEach(function (item) {
+                                    if (!item || item.hasOwnProperty('Text') === false) return;
+                                    fixes += `<li><p>${item.Text}</p></li>`;
+                                })
+                                $('#fixes-list').html(fixes)
+                                $('#patch-fixes').show()
+                            }
+
                             $('#patch-results').show()
                             $('#patch-error').text("")
                         },
