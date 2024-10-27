@@ -136,7 +136,7 @@
                                 let features = '';
                                 data.Features.forEach(function (item) {
                                     if (!item || item.hasOwnProperty('Text') === false) return;
-                                    fixes += `<li><p>${item.Text}</p></li>`;
+                                    features += `<li><p>${item.Text}</p></li>`;
                                 })
                                 $('#features-list').html(features)
                                 $('#patch-features').show()
