@@ -111,8 +111,8 @@
                 <h3><span>Latest Patch</span></h3>
             </div>
             <p id="patch-error" style="color: red"></p>
-            <div id="patch-features">
-                <div>
+            <div id="patch-results">
+                <div id="patch-features">
                     <h5>Features</h5>
                     <ul id="features-list"></ul>
                 </div>
@@ -130,7 +130,7 @@
                         dataType: 'json',
                         success: function (data) {
 
-                            if (data.hasOwnProperty("Features") == false || data.Features.length == 0) {
+                            if (data.hasOwnProperty("Features") === false || data.Features.length === 0) {
                                 $('#patch-features').hide()
                             } else {
                                 let features = '';
@@ -142,7 +142,7 @@
                                 $('#patch-features').show()
                             }
 
-                            if (data.hasOwnProperty("Fixes") == false || data.Fixes.length == 0) {
+                            if (data.hasOwnProperty("Fixes") === false || data.Fixes.length === 0) {
                                 $('#patch-fixes').hide()
                             } else {
                                 let fixes = '';
