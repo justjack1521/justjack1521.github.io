@@ -258,12 +258,12 @@
                 </h3>
             </div>
             <p>Send any questions or comments privately via the form below. If you would like a reply, please include an email address.</p>
-            <form class="form mt-3" name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/15kR5nSeXuu22bxHmeUon6VtKEb9oACOHcwQLaa16bxA/formResponse" target="hidden_iframe" onsubmit="submitted=true;">
+            <form class="form mt-3" name="gform" id="gform" enctype="text/plain" target="hidden_iframe">
                 <div class="form-group mb-3">
-                    <input name="entry.692799618" id="entry.692799618" type="email" class="form-control" placeholder="Email">
+                    <input name="contact-email" id="contact-email" type="email" class="form-control" placeholder="Email">
                 </div>
                 <div class="form-group mb-3">
-                    <textarea name="entry.626201969" id="entry.626201969" class="form-control" placeholder="Write your message here" rows="3" required></textarea>
+                    <textarea name="contact-content" id="contact-content" class="form-control" placeholder="Write your message here" rows="3" required></textarea>
                 </div>
                 <input class="btn btn-dark" type="submit" value="Send">
             </form>
@@ -272,8 +272,8 @@
                 $('#gform').on('submit', function(e) {
                     e.preventDefault();
                     const data = {
-                        email: $('#entry-692799618').val(),
-                        content:  $('#entry-626201969').val()
+                        email: $('#contact-email').val(),
+                        content:  $('#contact-content').val()
                     }
                     $.ajax({
                         url: "https://mevius-mevway-9mxlj.ondigitalocean.app/public/contact",
