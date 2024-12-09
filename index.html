@@ -271,20 +271,24 @@
             <script type="text/javascript">
                 $('#gform').on('submit', function(e) {
                     e.preventDefault();
-
+                    const data = {
+                        email: $('#entry-692799618').val(),
+                        content:  $('#entry-626201969').val()
+                    }
                     $.ajax({
-                        type: "POST",
                         url: "https://mevius-mevway-9mxlj.ondigitalocean.app/public/contact",
-                        data: {
-                            'email': $('#entry-692799618').val(),
-                            'content': $('#entry-626201969').val()
-                        },
-                        success: function() {
+                        type: "POST",
+                        data: JSON.stringify(data),
+                        contentType: "application/json",
+                        success: function(response) {
                             $('#gform *').fadeOut(2000, function() {
                                 $('#gform').prepend('<p>Your message has been sent!</p>');
                             });
+                        },
+                        error: function(xhr, status, error) {
+                            console.error("Error:", error);
                         }
-                    });
+                    })
                 });
             </script>
         </div>
