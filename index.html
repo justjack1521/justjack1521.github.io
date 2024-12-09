@@ -269,7 +269,7 @@
             </form>
             <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
             <script type="text/javascript">
-                $('#gform').on('submit', function(e) {
+                $('#gform').off('submit').on('submit', function(e) {
                     e.preventDefault();
                     const data = {
                         email: $('#contact-email').val(),
