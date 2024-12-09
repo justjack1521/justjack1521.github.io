@@ -274,10 +274,10 @@
 
                     $.ajax({
                         type: "POST",
-                        url: "https://docs.google.com/forms/d/15kR5nSeXuu22bxHmeUon6VtKEb9oACOHcwQLaa16bxA/formResponse",
+                        url: "https://mevius-mevway-9mxlj.ondigitalocean.app/public/contact",
                         data: {
-                            'entry.692799618': $('#entry-692799618').val(),
-                            'entry.626201969': $('#entry-626201969').val()
+                            'email': $('#entry-692799618').val(),
+                            'content': $('#entry-626201969').val()
                         },
                         success: function() {
                             $('#gform *').fadeOut(2000, function() {
