@@ -251,13 +251,13 @@
             </div>
         </div>
         <div class="container-fluid" id="Contact">
-            <script type="text/javascript">var submitted=false;</script>
             <div class="row pageheader">
                 <h3>
                     <span>Contact</span>
                 </h3>
             </div>
             <p>Send any questions or comments privately via the form below. If you would like a reply, please include an email address.</p>
+            <span id="#sent"></span>
             <form class="form mt-3" name="gform" id="gform" enctype="text/plain">
                 <div class="form-group mb-3">
                     <input name="contact-email" id="contact-email" type="email" class="form-control" placeholder="Email">
@@ -268,7 +268,7 @@
                 <input class="btn btn-dark" type="submit" value="Send">
             </form>
             <script type="text/javascript">
-                $('#gform').off('submit').on('submit', function(e) {
+                $('#gform').on('submit', function(e) {
                     e.preventDefault();
                     const data = {
                         email: $('#contact-email').val(),
@@ -281,7 +281,7 @@
                         contentType: "application/json",
                         success: function(response) {
                             $('#gform').fadeOut(2000, function() {
-                                $('#gform').prepend('<p>Your message has been sent!</p>');
+                                $('#sent').prepend('<p>Your message has been sent!</p>');
                             });
                         },
                         error: function(xhr, status, error) {
