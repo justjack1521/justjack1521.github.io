@@ -251,6 +251,7 @@
             </div>
         </div>
         <div class="container-fluid" id="Contact">
+            <script type="text/javascript">var submitted=false;</script>
             <div class="row pageheader">
                 <h3>
                     <span>Contact</span>
@@ -267,7 +268,6 @@
                 <input class="btn btn-dark" type="submit" value="Send">
             </form>
             <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
-            <script type="text/javascript">var submitted=false;</script>
             <script type="text/javascript">
                 $('#gform').on('submit', function(e) {
                     $('#gform *').fadeOut(2000);
