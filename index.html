@@ -258,7 +258,7 @@
                 </h3>
             </div>
             <p>Send any questions or comments privately via the form below. If you would like a reply, please include an email address.</p>
-            <form class="form mt-3" name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/15kR5nSeXuu22bxHmeUon6VtKEb9oACOHcwQLaa16bxA/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
+            <form class="form mt-3" name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/15kR5nSeXuu22bxHmeUon6VtKEb9oACOHcwQLaa16bxA/formResponse" target="hidden_iframe" onsubmit="submitted=true;">
                 <div class="form-group mb-3">
                     <input name="entry.692799618" id="entry.692799618" type="email" class="form-control" placeholder="Email">
                 </div>
@@ -270,8 +270,21 @@
             <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
             <script type="text/javascript">
                 $('#gform').on('submit', function(e) {
-                    $('#gform *').fadeOut(2000);
-                    $('#gform').prepend('Your message has been sent!');
+                    e.preventDefault();
+
+                    $.ajax({
+                        type: "POST",
+                        url: "https://docs.google.com/forms/d/15kR5nSeXuu22bxHmeUon6VtKEb9oACOHcwQLaa16bxA/formResponse",
+                        data: {
+                            'entry.692799618': $('#entry-692799618').val(),
+                            'entry.626201969': $('#entry-626201969').val()
+                        },
+                        success: function() {
+                            $('#gform *').fadeOut(2000, function() {
+                                $('#gform').prepend('<p>Your message has been sent!</p>');
+                            });
+                        }
+                    });
                 });
             </script>
         </div>
