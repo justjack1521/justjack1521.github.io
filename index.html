@@ -258,7 +258,7 @@
                 </h3>
             </div>
             <p>Send any questions or comments privately via the form below. If you would like a reply, please include an email address.</p>
-            <form class="form mt-3" name="gform" id="gform" enctype="text/plain" target="hidden_iframe">
+            <form class="form mt-3" name="gform" id="gform" enctype="text/plain">
                 <div class="form-group mb-3">
                     <input name="contact-email" id="contact-email" type="email" class="form-control" placeholder="Email">
                 </div>
@@ -267,7 +267,6 @@
                 </div>
                 <input class="btn btn-dark" type="submit" value="Send">
             </form>
-            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
             <script type="text/javascript">
                 $('#gform').off('submit').on('submit', function(e) {
                     e.preventDefault();
@@ -281,10 +280,9 @@
                         data: JSON.stringify(data),
                         contentType: "application/json",
                         success: function(response) {
-                            $('#gform').prepend('<p>Your message has been sent!</p>');
-                            setTimeout(function() {
-                                $('#gform').fadeOut(2000);
-                            }, 1000);
+                            $('#gform').fadeOut(2000, function() {
+                                $('#gform').prepend('<p>Your message has been sent!</p>');
+                            });
                         },
                         error: function(xhr, status, error) {
                             console.error("Error:", error);
