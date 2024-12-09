@@ -281,7 +281,7 @@
                         contentType: "application/json",
                         success: function(response) {
                             $('#gform').fadeOut(2000, function() {
-                                $('#sent').prepend('<p>Your message has been sent!</p>');
+                                $('#sent').prepend('<strong><p>Your message has been sent!</p></strong>');
                             });
                         },
                         error: function(xhr, status, error) {
