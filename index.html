@@ -45,10 +45,13 @@
                     <a class="nav-link" href="#Download">Download</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="#Progress">Progress</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#Patch">Patch</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#Issue">Known Issues</a>
+                    <a class="nav-link" href="#Issue">Issues</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#FAQ">FAQs</a>
@@ -140,7 +143,7 @@
             <script>
                 $(document).ready(function () {
                     $.ajax({
-                        url: 'https://mevius-mevway-9mxlj.ondigitalocean.app/public/progress/list',
+                        url: 'https://mevius-mevway-9mxlj.ondigitalocean.app/public/patch/recent',
                         method: 'GET',
                         dataType: 'json',
                         success: function (data) {
@@ -156,10 +159,7 @@
                                     const percent = Math.round((metric.Value / metric.Total) * 100);
                                     html += `
                             <div class="mb-2">
-                                <div class="d-flex justify-content-between">
-                                    <strong>${metric.Title}</strong>
-                                    <span>${metric.Value}/${metric.Total}</span>
-                                </div>
+                                <strong>${metric.Title}</strong>
                                 <div class="progress">
                                     <div class="progress-bar" role="progressbar"
                                         style="width: ${percent}%;" aria-valuenow="${percent}"
@@ -178,7 +178,6 @@
                     });
                 });
             </script>
-
         </div>
         <div class="container-fluid" id="Patch">
             <div class="row pageheader">
