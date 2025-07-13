@@ -132,6 +132,54 @@
                 </div>
             </div>
         </div>
+        <div class="container-fluid" id="Progress">
+            <div class="row pageheader">
+                <h3><span>Progress</span></h3>
+            </div>
+            <div id="progress-content"></div>
+            <script>
+                $(document).ready(function () {
+                    $.ajax({
+                        url: 'https://mevius-mevway-9mxlj.ondigitalocean.app/public/patch/recent',
+                        method: 'GET',
+                        dataType: 'json',
+                        success: function (data) {
+                            if (!data.Features || data.Features.length === 0) return;
+
+                            let html = '';
+
+                            data.Features.forEach(feature => {
+                                html += `<div class="mb-4">`;
+                                html += `<h5>${feature.Title}</h5>`;
+
+                                feature.Metrics.forEach(metric => {
+                                    const percent = Math.round((metric.Value / metric.Total) * 100);
+                                    html += `
+                            <div class="mb-2">
+                                <div class="d-flex justify-content-between">
+                                    <strong>${metric.Title}</strong>
+                                    <span>${metric.Value}/${metric.Total}</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar"
+                                        style="width: ${percent}%;" aria-valuenow="${percent}"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                        ${percent}%
+                                    </div>
+                                </div>
+                            </div>`;
+                                });
+
+                                html += `</div>`;
+                            });
+
+                            $('#progress-content').html(html);
+                        }
+                    });
+                });
+            </script>
+
+        </div>
         <div class="container-fluid" id="Patch">
             <div class="row pageheader">
                 <h3><span>Latest Patch</span></h3>
