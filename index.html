@@ -183,6 +183,7 @@
             <div class="row pageheader">
                 <h3><span>Latest Patch</span></h3>
             </div>
+            <p id="patch-date"></p>
             <p id="patch-error" style="color: red"></p>
             <div id="patch-results">
                 <div id="patch-features">
@@ -202,7 +203,11 @@
                         method: 'GET',
                         dataType: 'json',
                         success: function (data) {
-
+                            const date = new Date(data.ReleaseDate);
+                            const day = String(date.getDate()).padStart(2, "0");
+                            const month = String(date.getMonth() + 1).padStart(2, "0");
+                            const year = date.getFullYear();
+                            $('#patch-date').text(`${day}-${month}-${year}`)
                             if (data.hasOwnProperty("Features") === false || data.Features.length === 0) {
                                 $('#patch-features').hide()
                             } else {
