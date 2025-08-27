@@ -152,8 +152,15 @@
                             let html = '';
 
                             data.Features.forEach(feature => {
+
+                                const date = new Date(feature.UpdatedAt);
+                                const day = String(date.getDate()).padStart(2, "0");
+                                const month = String(date.getMonth() + 1).padStart(2, "0");
+                                const year = date.getFullYear();
+
                                 html += `<div class="mb-4">`;
                                 html += `<h5>${feature.Title}</h5>`;
+                                html += `<p>Last Updated ${feature.UpdatedAt}</p>`;
 
                                 feature.Metrics.forEach(metric => {
                                     const percent = Math.round((metric.Value / metric.Total) * 100);
