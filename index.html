@@ -160,7 +160,7 @@
 
                                 html += `<div class="mb-4">`;
                                 html += `<h5>${feature.Title}</h5>`;
-                                html += `<p>Last Updated ${feature.UpdatedAt}</p>`;
+                                html += `<p>Last Updated ${day}-${month}-${year}</p>`;
 
                                 feature.Metrics.forEach(metric => {
                                     const percent = Math.round((metric.Value / metric.Total) * 100);
@@ -214,7 +214,7 @@
                             const day = String(date.getDate()).padStart(2, "0");
                             const month = String(date.getMonth() + 1).padStart(2, "0");
                             const year = date.getFullYear();
-                            $('#patch-date').text(`${day}-${month}-${year}`)
+                            $('#patch-date').text(`Release Date ${day}-${month}-${year}`)
                             if (data.hasOwnProperty("Features") === false || data.Features.length === 0) {
                                 $('#patch-features').hide()
                             } else {
